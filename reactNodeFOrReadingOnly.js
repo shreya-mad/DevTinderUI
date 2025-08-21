@@ -40,3 +40,6 @@
 
 // A bundler is a tool that takes all the different files in your project (JavaScript, CSS, images, etc.)
 //  and combines them into optimized files that browsers can understand and load efficiently.
+
+
+// setup tailwind to app
