@@ -1,7 +1,8 @@
 function App() {
   return (
     <>
-      <h1 className="bg-blue-500">helllo world</h1>
+      <h1 className="bg-red-500 ">helllo world</h1>
+      <button class="btn btn-primary">Test DaisyUI</button>
     </>
   );
 }
