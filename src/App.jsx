@@ -1,8 +1,18 @@
+import Body from "./Body";
+import Login from "./Login";
+import About from "./About";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <>
-      <h1 className="bg-red-500 ">helllo world</h1>
-      <button class="btn btn-primary">Test DaisyUI</button>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Body />}>
+            <Route path="/login" element={<Login/>} />
+            <Route path="/about" element={<About/>} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
