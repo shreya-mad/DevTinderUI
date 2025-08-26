@@ -92,3 +92,73 @@
 // jab ham child router ka poath denge to uske sath uska parent route bhi ayega leking agr hamne parent ka router path diya hai to keval parent router component hi ayega
 
 // aur agr hamne fooltet componet dal diya hai body me to phir vo bhi navbar ki tarah stick rahega if child componet ka router path dal rhe h to 
+
+// code for clling function without passing variable
+//  <button onClick={sayHello} className="btn btn-primary"></button>
+// calling function when passing any variable 
+{/* <button onClick={() => greetUser("Shreya")} className="btn btn-secondary"></button> */}
+
+
+// Why e.preventDefault()?
+
+// Normally, submitting a form would refresh the page.
+// Calling e.preventDefault() stops the default browser behavior 
+
+// if we havnt set withCredial:true in api call then it doesnt set jwt token in cookies anddue to that 
+// authentication of other api would fail
+
+// const response=await axios.post("http://localhost:4000/login",{
+    //     email,
+    //     password
+    //   },{ withCredentials: true });
+
+//  upar ke code ki tarah jab ham  krenge to phir vo token ko cookies me store kara lega aur tbhi ye 
+// cookies
+//  ko baki api call me automatic send kr dega
+
+
+// Redux is a state management library that stores your app’s data in a centralized store 
+// so components can share 
+// state easily without prop-drilling.
+
+
+// WHOLE CONCEPT OF REDUX
+
+// agar hame react ko brouwser pe kam karana hai to to uske liye react-dom library hai aur agr mobile pe
+// karana hai to uske liye react-native library hai
+// redux apne aap me ek state management library hai aur agr ham isko  kahi bhi use krna chahte
+//  hai,like react  to uske liye uska ek saga bhai hota hai like react me react-redux.....to agr hame redux 
+// use krna hai to uske liye redux jo ki ek core library hai aur uske sath ek aur llibrary chiaye hoti hai jo
+// ki react aur redux ke beech bridge bana pae
+
+// redux se phle stae management ke liye flux use hota tha joki facebook ne banya tha phir redux aya and then 
+// redux-toolkit
+// isme ek store hota hai global varible type kuch aur iss store ke andar mini stores bhi ho skte hai...
+// phir ek reducer hota hai joki ki store ke andar ke chnager ko handle krta hai
+// useSelector joki kuch value ko select krna ho tb kam ata
+// useDispatcher tab use hota hai jab koi value bhejni ho ya dispath krni ho
+
+
+// 🔑 REDUX CORE CONCEPTS
+
+// Concept                    Meaning	                                                     Example
+// Store	   Central place where all your app’s state lives.	                      Like a big “warehouse” for data.
+// Action	   An object describing what you want to do.	                          { type: "INCREMENT" }
+// Reducer	   A function that decides how the state changes based on an action.	  (state, action) => newState
+// Dispatch	   The way to send an action to the store.	                              dispatch({type:"INCREMENT"})
+// Selector	   A way to read data from the store.	                                  useSelector((state)=>state.counter)
+ 
+
+// redux ke implementation me sabse phle banaynege configureStore then reducer aur yaha ham reducer ko hi 
+// slice bolenege
+
+// project ke entry point pe ham sare code ko reducer tag ke andar wrap kr denege joki react-redux library 
+// se milta h ...taki ham redux store se data ko use kr sake ,simple mean ki ham apne project se uska 
+// connection build kr sake
+
+// phle redux install krnege then store banyenege phir project ke entry point pe jakee provider me wrap up 
+// krnege then reducer banayenge jiska name createSlice
+// install=>configureStore=>Provider=>createSlicer=>add reducer to store
+// now we are safe to add data to redux tool
+
+
