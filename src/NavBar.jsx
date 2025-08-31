@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {toast} from 'react-hot-toast';
+import { Link } from "react-router-dom";
 const NavBar = () => {
     const navigate = useNavigate();
   const handleLogout = async () => {
@@ -28,7 +29,7 @@ navigate("/login");
   return (
     <div className="navbar bg-gray-500 shadow-sm ">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl text-white">Dev Tinder</a>
+        <Link to='/feed' className="btn btn-ghost text-xl text-white">Dev Tinder</Link>
       </div>
       <div className="flex gap-2">
         <input
@@ -61,10 +62,10 @@ navigate("/login");
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a className="justify-between">
+              <Link to='/profile' className="justify-between">
                 Profile
                 {/* <span className="badge">New</span> */}
-              </a>
+              </Link>
             </li>
             <li>
               <a>Settings</a>
