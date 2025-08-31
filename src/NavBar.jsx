@@ -2,25 +2,30 @@ import React from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {toast} from 'react-hot-toast';
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { removeUser } from "./Redux/userSlice";
 const NavBar = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogout = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/logout", {
+      await axios.post("http://localhost:4000/logout",{}, {
         withCredentials: true,
       });
-       toast.success('Logout Successfull!!!',{
-      duration:3000,
-       position: 'top-right', 
-            style:{
-                zIndex:4,
-                height:'50px',
-                marginTop:'50px'
-            }
-  });
-navigate("/login");
+      dispatch(removeUser());
+      toast.success("Logout Successfull!!!", {
+        duration: 3000,
+        position: "top-right",
+        style: {
+          zIndex: 4,
+          height: "50px",
+          marginTop: "50px",
+        },
+      });
+      navigate("/login");
     } catch (err) {
       alert("There is some error in logout: " + err);
     }
@@ -29,7 +34,9 @@ navigate("/login");
   return (
     <div className="navbar bg-gray-500 shadow-sm ">
       <div className="flex-1">
-        <Link to='/feed' className="btn btn-ghost text-xl text-white">Dev Tinder</Link>
+        <Link to="/feed" className="btn btn-ghost text-xl text-white">
+          Dev Tinder
+        </Link>
       </div>
       <div className="flex gap-2">
         <input
@@ -62,7 +69,7 @@ navigate("/login");
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <Link to='/profile' className="justify-between">
+              <Link to="/profile" className="justify-between">
                 Profile
                 {/* <span className="badge">New</span> */}
               </Link>

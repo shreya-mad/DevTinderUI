@@ -3,38 +3,71 @@ import axios from "axios";
 import { addUser } from "./Redux/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {toast} from 'react-hot-toast';
+import { toast } from "react-hot-toast";
+
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
+  const [errors, setErrors] = useState({ email: "", password: "" });
+
+  // 🔹 Simple Email Validation
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    let newErrors = { email: "", password: "" };
+    let isValid = true;
+
+    if (!email) {
+      newErrors.email = "Email is required";
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      newErrors.email = "Please enter a valid email";
+      isValid = false;
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required";
+      isValid = false;
+    } else if (password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+
+    if (!isValid) return;
+
     try {
       const response = await axios.post(
         "http://localhost:4000/login",
-        {
-          email,
-          password,
-        },
+        { email, password },
         { withCredentials: true }
       );
+
       dispatch(addUser(response.data));
       navigate("/about");
-        toast.success('Login Successfull!!!',{
-            duration:3000,
-            position: 'top-center', 
-            style:{
-                zIndex:4,
-                height:'50px',
-                marginTop:'50px'
-            }
-        });
+      toast.success("Login Successful!", {
+        duration: 3000,
+        position: "top-center",
+        style: {
+          zIndex: 4,
+          height: "50px",
+          marginTop: "50px",
+        },
+      });
     } catch (err) {
-      alert("There is some error in login: " + err);
+      toast.error("Invalid email or password", {
+        duration: 3000,
+        position: "top-center",
+      });
     }
   };
 
@@ -65,10 +98,15 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full"
-                required
+                className={`input input-bordered w-full ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                }`}
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
 
             {/* Password */}
@@ -77,13 +115,14 @@ const Login = () => {
             </label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"} // ✅ FIXED
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
-                className="input input-bordered w-full"
-                required
+                className={`input input-bordered w-full ${
+                  errors.password ? "border-red-500" : "border-gray-300"
+                }`}
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {/* Toggle Button */}
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
@@ -92,6 +131,9 @@ const Login = () => {
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
 
             {/* Forgot Password */}
             <div className="text-right">
