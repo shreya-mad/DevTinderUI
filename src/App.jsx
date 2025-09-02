@@ -4,6 +4,7 @@ import About from "./About";
 import Profile from "./Profile";
 import Feed from "./Feed";
 import Connection from "./Connection";
+import RequestRecieved from "./Request";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import {Provider} from 'react-redux';
 import store from "./Redux/ReduxStore";
@@ -21,6 +22,8 @@ function App() {
              <Route path="/profile" element={<Profile/>} />
                <Route path="/feed" element={<Feed/>} /> 
                <Route path="/connection" element={<Connection/>} /> 
+               <Route path="/requestRecieved" element={<RequestRecieved/>} /> 
+               
           </Route>
         </Routes>
       </BrowserRouter>

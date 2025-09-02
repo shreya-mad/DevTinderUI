@@ -24,6 +24,7 @@ const Connection = () => {
   if (data.length === 0) return <>There is no connection</>;
  return (
     <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {/* <h1>My Connections</h1> */}
       {data.map((connection) => (
         <div
           key={connection._id}
