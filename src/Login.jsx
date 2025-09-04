@@ -4,7 +4,7 @@ import { addUser } from "./Redux/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -144,9 +144,9 @@ const Login = () => {
               >
                 don't have Account? Signup
               </button>
-              <a href="#" className="link link-primary">
+              <Link to='/forget-password-mail-send' className="link link-primary">
                 Forgot Password?
-              </a>
+              </Link>
             </div>
 
             {/* Login Button */}
