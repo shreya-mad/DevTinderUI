@@ -34,9 +34,9 @@ const NavBar = () => {
   return (
     <div className="navbar bg-gray-500 shadow-sm ">
       <div className="flex-1">
-        <Link to="/feed" className="btn btn-ghost text-xl text-white">
+        <div  className="btn btn-ghost text-xl text-white">
           Dev Tinder
-        </Link>
+        </div>
       </div>
       <div className="flex gap-2">
         <input

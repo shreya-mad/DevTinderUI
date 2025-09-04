@@ -1,9 +1,9 @@
 import React from 'react'
-
+import Feed from './Feed'
 const About = () => {
   return (
     <div>
-      About
+      <Feed/>
     </div>
   )
 }

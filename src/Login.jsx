@@ -135,17 +135,22 @@ const Login = () => {
               <p className="text-red-500 text-sm mt-1">{errors.password}</p>
             )}
 
-            {/* Forgot Password */}
-            <div className="text-right">
-              <a href="#" className="link link-primary text-gray-500 text-sm">
+            {/* Signup & Forgot Password Links */}
+            <div className="flex justify-between text-sm text-gray-500">
+              <button
+                type="button"
+                onClick={() => navigate("/signup")}
+                className="link link-primary"
+              >
+                don't have Account? Signup
+              </button>
+              <a href="#" className="link link-primary">
                 Forgot Password?
               </a>
             </div>
 
             {/* Login Button */}
-            <button className="btn w-full bg-gray-500 text-white">
-              Login
-            </button>
+            <button className="btn w-full bg-gray-500 text-white">Login</button>
           </form>
         </div>
       </div>
