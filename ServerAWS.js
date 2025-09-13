@@ -113,4 +113,50 @@
 // nvm alias default 22.17.1
 
 // for log out from the machine we need to use command exit
+// for security reason we get disconnected with the virtual machine of we keep our terminal open for a while
+// now clone your project from github to ec2 by ssh and use command git clone and ssh link of that repo
+
+// now run our project on ec2 so for that we need to make build of the project so that our project 
+// gets bundled up so if we are using vite bundler then it will create dist folder which is similar to
+// build in webpack bundler ,so dist is simply a optimes,minmised and production ready code of our prject 
+// then install all the dependencies by npm install 
+// above few steps are only for frontend deployemnt
+// to deploy frontend project we need something known as ngnix
+
+// Nginx (pronounced “engine-x”) is a high-performance web server and reverse proxy.
+
+// It can be used to:
+
+// Serve static files (HTML, CSS, JavaScript, images) for websites.
+
+// Act as a reverse proxy, forwarding requests to backend servers (like Node.js, Python, PHP, etc.).
+
+// Handle load balancing for multiple backend servers.
+
+// Serve as a mail proxy (less common).
+// Think of Nginx as a waiter in a restaurant:
+
+// You (the user) ask for a dish (a website or app).
+
+// Nginx is the waiter who takes your request and gives you the food.
+
+// In technical terms:
+
+// Web server: It can directly serve your website files (HTML, CSS, JS).
+
+// Reverse proxy: It can forward requests to your app (like a Node.js or Vite app) running in the background.
+
+// Load balancer: If there are many users, it distributes traffic to multiple servers so no server gets overloaded.
+// after installing nginx ,simply run that in virtual machine
+// copy code from dist(build file) to /var/www/html/ by below command
+// sudo scp -r dist/* /var/www/html/
+// now our frontend app should be running on the public ip of the ec2 instance but that wont bcos 
+// aws locks all our port so when when we deploye our poject using nginx then it deployed on port no 80
+// now enble port :80 on your instance
+// so we have to go security group in security of oue instance and inbound rules there
+// so go to edit inbound rule in that section then add rule inside that and add port range 80
+// then add port  0.0.0.0/0 so that it will allow all the port to access it  then save rules
+// now we can our frontend project on that instance public ip our fronted application 
+// is deployed successfully,if we want to show any perticular domain name then simply buy domain 
+// name then map that into our ip address
 
