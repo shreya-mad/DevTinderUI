@@ -6,7 +6,7 @@ const Connection = () => {
 
   const fetchConnection = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/user/connections", {
+      const res = await axios.get("/api/user/connections", {
         withCredentials: true,
       });
       console.log(res);

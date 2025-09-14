@@ -24,7 +24,7 @@ export default function ForgotPassword() {
 
       // Example API call
       const response = await axios.post(
-        "http://localhost:4000/forgot-password",
+        "/api/forgot-password",
         { email },
         { withCredentials: true }
       );

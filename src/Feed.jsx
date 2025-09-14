@@ -11,7 +11,7 @@ const Feed = () => {
   const getFeed = async () => {
     if (feed?.length) return; // Don't fetch again if feed already exists
     try {
-      const res = await axios.get("http://localhost:4000/user/feed", {
+      const res = await axios.get("/api/user/feed", {
         withCredentials: true,
       });
       dispatch(addFeed(res.data.data)); // Store array in Redux
@@ -23,7 +23,7 @@ const Feed = () => {
   const handleSendRequest = async (status, userID) => {
     try {
       const res = await axios.post(
-        `http://localhost:4000/Request/send/${status}/${userID}`,
+        `/api/Request/send/${status}/${userID}`,
         {},
         { withCredentials: true }
       );

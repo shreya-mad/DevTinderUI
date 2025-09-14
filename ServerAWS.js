@@ -160,3 +160,68 @@
 // is deployed successfully,if we want to show any perticular domain name then simply buy domain 
 // name then map that into our ip address
 
+// ALL THE STEPS FOR FOR BACKENED DEPLOYEMENT
+// npm install in virtual machine after going to backend project
+// start backend by npm start command
+// here we need to enable port 4000 of backned same as port 80 for frontedn
+// hamra backened application run karega jab ham apne vs code me aur aws dono me project ko run krenege
+// agr hamne apna projecgt bnd kiya to phir port pe hamara prject run nhi krega,here i need to run only on virtual machine ,not in our project
+// so we have to do something jisse hamra npm starrt forver chlta rahe
+// for that ,we will use PM2 packange
+// then start server using below command
+// pm2 start npm -- start
+// by command pm2 logs,it will show the res of our backned project ,like database connection successfull
+
+
+// our frontened is running on port http://51.20.56.108/
+// and our backned is running on port http://51.20.56.108:4000/
+
+// if we  map our website to devTinder.com then frontend would run on devTinder.com
+// and our backend will run on devTinder.com:4000 but this is not standard ...stand 
+// would be devTinder.com/api
+// so for mapping our port no to /api we need nginx and there is something known as nginx proxy pass
+// ham nginx me jake phir koi bhi /pai wali request ko :4000 pe map kr denge 
+// to phir ham sudo nano  sudo nano /etc/nginx/sites-available/default command ko run krenge to phir 
+// ye vhi redirect krenge jaha hame edit krna h
+// to phir phle ham server name chnage krnege jki defalut me _ hai but hame yha pe apna 
+// ip address dalna hoga jisse project ko access krte h ,like: 51.20.56.108/
+// phir us server ke neeche some other rules ko add krnege ,below mentioned
+// location /api {
+    //     proxy_pass http://localhost:4000;
+    //     proxy_http_version 1.1;
+    //     proxy_set_header Upgrade $http_upgrade;
+    //     proxy_set_header Connection 'upgrade';
+    //     proxy_set_header Host $host;
+    //     proxy_cache_bypass $http_upgrade;
+    // }
+    // then save and restart ngnix vby sudo systemctl restart nginx
+
+// COMPLETELY CORRECRED NGINX CONFIGURATION
+//     server {
+//     listen 80 default_server;
+//     listen [::]:80 default_server;
+
+//     root /var/www/html;
+//     index index.html index.htm index.nginx-debian.html;
+
+//     server_name 51.20.56.108;
+
+//     location /api {
+//         proxy_pass http://localhost:4000;
+//         proxy_http_version 1.1;
+//         proxy_set_header Upgrade $http_upgrade;
+//         proxy_set_header Connection 'upgrade';
+//         proxy_set_header Host $host;
+//         proxy_cache_bypass $http_upgrade;
+//     }
+
+//     location / {
+//         try_files $uri $uri/ =404;
+//     }
+// }
+
+
+// modify the api url in frontend code
+
+
+

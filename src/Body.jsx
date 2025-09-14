@@ -15,7 +15,7 @@ const Body = () => {
   const fetchUser = async () => {
     if (user) return;
     try {
-      const res = await axios.get("http://localhost:4000/profile/view", {
+      const res = await axios.get("/api/profile/view", {
         withCredentials: true,
       });
       if (!res) navigate("/login");
