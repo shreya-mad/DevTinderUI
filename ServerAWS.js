@@ -222,6 +222,14 @@
 
 
 // modify the api url in frontend code
+// after that ,we need rto repeat whole the process of frontend deployement
 
+// ADDING CUSTOM DOMAIN NAME TO OUR WEBSITE
+// so for that we can use varius website and one of them is goDaddy but i have used duckdns because 
+// its free  
 
+// and for DNS mangement we can use cloudflare,DNS management meaning for which ip address we are mapping
+// to purchased or free domain name
+// we can manage DNS on goDaddy as well but cloudflare provides free ssl and all
+// enable SSL and made website https
 
