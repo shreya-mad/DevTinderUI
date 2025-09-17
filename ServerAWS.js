@@ -239,3 +239,7 @@
 // we can manage DNS on goDaddy as well but cloudflare provides free ssl and all
 // enable SSL and made website https
 
+// if we have kept secret varibles of api in .env file then while production wneed to make .env file in 
+// ec2 instance manually by simple command sudo nano .env and this will make .env file and then 
+// we simply have to paste all the secret varibles inside that file 
+
