@@ -93,7 +93,13 @@
 
 // after selcting ssh client methos we simply run command present on that into the terminal 
 // so here my laptop has windows so we dont need to run 2 commands of cdmod,dorectly run blow command 
+// go to downloads folder then write below command to connect aws ec2 instance
 // ssh -i "devTinder-secret.pem" ubuntu@ec2-51-20-56-108.eu-north-1.compute.amazonaws.com
+// for connecting to ec2 instance ,we simply guided to go downloads foder because .pem file generated while 
+// making ec2 instance is get dowloaded in default folder named downloads and we need .pem file for
+//  connecting to ec2 instnce from our laptop
+// You go into the Downloads folder in Command Prompt only because that’s where your .pem file is stored by 
+// default. It’s not a requirement — you can connect from anywhere if you provide the full path of the .pem file.
 // so by running above ,we simply logged into that virtiual machine from our machine(laptop)
 // now terminal of our laptop becomes terminal of that virtual machine 
 // now install all the dependecies of the project like node or something else and your node version 
