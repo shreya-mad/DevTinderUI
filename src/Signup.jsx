@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { addUser } from "./Redux/userSlice";
-
+import { BASE_URL } from  "./api";
 const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -51,7 +51,8 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "/api/signup",
+        // "/api/signup",
+        `${BASE_URL}/signup`,
         formData,
         { withCredentials: true }
       );

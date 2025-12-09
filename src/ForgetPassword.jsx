@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from  "./api";
 import { toast } from "react-hot-toast";
 
 const ResetPassword = () => {
@@ -22,7 +23,10 @@ const ResetPassword = () => {
     try {
       // API call to reset password
     //   /reset-password/:token
-      const res = await axios.post(`/api/reset-password/${token}`, {
+      const res = await axios.post(
+        // `/api/reset-password/${token}`, 
+        `${BASE_URL}/reset-password/${token}`,
+        {
         password,
       });
       toast.success(res.data.message || "Password reset successfully!");

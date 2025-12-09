@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { addUser } from "./Redux/userSlice";
+import { BASE_URL } from  "./api";
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName || "");
   const [lastName, setLastName] = useState(user.lastName || "");
@@ -14,7 +15,8 @@ const EditProfile = ({ user }) => {
     e.preventDefault();
     try {
       const res = await axios.patch(
-        "/api/profile/edit",
+        // "/api/profile/edit",
+        `${BASE_URL}/profile/edit`,
         { firstName, lastName, age, gender, profilePicture },
         { withCredentials: true }
       );

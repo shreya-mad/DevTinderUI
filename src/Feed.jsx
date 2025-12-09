@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "./Redux/FeedSlice";
 import { toast } from "react-hot-toast";
-
+import { BASE_URL } from  "./api";
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
@@ -11,7 +11,10 @@ const Feed = () => {
   const getFeed = async () => {
     if (feed?.length) return; // Don't fetch again if feed already exists
     try {
-      const res = await axios.get("/api/user/feed", {
+      const res = await axios.get(
+        // "/api/user/feed", 
+        `${BASE_URL}/user/feed`,
+        {
         withCredentials: true,
       });
       dispatch(addFeed(res.data.data)); // Store array in Redux
@@ -23,7 +26,8 @@ const Feed = () => {
   const handleSendRequest = async (status, userID) => {
     try {
       const res = await axios.post(
-        `/api/Request/send/${status}/${userID}`,
+        // `/api/Request/send/${status}/${userID}`,
+        `${BASE_URL}/Request/send/${status}/${userID}`,
         {},
         { withCredentials: true }
       );

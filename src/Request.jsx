@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
+import { BASE_URL } from  "./api";
 
 const Request = () => {
   const [requestRecieved, setRequestRecieved] = useState([]);
@@ -8,7 +9,8 @@ const Request = () => {
   const fetchRequest = async () => {
     try {
       const res = await axios.get(
-        "/api/user/requests/received",
+        // "/api/user/requests/received",
+        `${BASE_URL}/user/requests/received`,
         { withCredentials: true }
       );
       setRequestRecieved(res.data.data);
@@ -24,7 +26,8 @@ const Request = () => {
   const handleAcceptReject = async (status, _id) => {
     try {
       const res = await axios.post(
-        `/api/request/review/${status}/${_id}`,
+        // `/api/request/review/${status}/${_id}`,
+        `${BASE_URL}/request/review/${status}/${_id}`,
         {},
         { withCredentials: true }
       );

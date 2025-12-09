@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import { BASE_URL } from  "./api";
 const Body = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -15,7 +15,10 @@ const Body = () => {
   const fetchUser = async () => {
     if (user) return;
     try {
-      const res = await axios.get("/api/profile/view", {
+      const res = await axios.get(
+        // "/api/profile/view", 
+        `${BASE_URL}/profile/view`,
+        {
         withCredentials: true,
       });
       if (!res) navigate("/login");

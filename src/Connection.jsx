@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import { BASE_URL } from  "./api";
 const Connection = () => {
   const [data, setData] = useState([]);
 
   const fetchConnection = async () => {
     try {
-      const res = await axios.get("/api/user/connections", {
+      const res = await axios.get(
+        // "/api/user/connections", 
+        `${BASE_URL}/user/connections`,
+        {
         withCredentials: true,
       });
       setData(res.data.data || []);

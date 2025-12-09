@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { BASE_URL } from  "./api";
 
 import { removeUser } from "./Redux/userSlice";
 const NavBar = () => {
@@ -12,7 +13,10 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const handleLogout = async () => {
     try {
-      await axios.post("/api/logout",{}, {
+      await axios.post(
+        // "/api/logout",
+        `${BASE_URL}/logout`,
+        {}, {
         withCredentials: true,
       });
       dispatch(removeUser());

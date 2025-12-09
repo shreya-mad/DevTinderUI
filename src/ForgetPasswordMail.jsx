@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { BASE_URL } from  "./api";
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
@@ -24,7 +25,8 @@ export default function ForgotPassword() {
 
       // Example API call
       const response = await axios.post(
-        "/api/forgot-password",
+        // "/api/forgot-password",
+        `${BASE_URL}/forgot-password`,
         { email },
         { withCredentials: true }
       );

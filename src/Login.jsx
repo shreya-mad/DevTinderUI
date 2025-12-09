@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { BASE_URL } from  "./api";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -47,7 +48,8 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "/api/login",
+        // "/api/login",
+       `${BASE_URL}/login`,
         { email, password },
         { withCredentials: true }
       );
