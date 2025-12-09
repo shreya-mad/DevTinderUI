@@ -11,7 +11,6 @@ const Request = () => {
         "/api/user/requests/received",
         { withCredentials: true }
       );
-      console.log(res.data.data);
       setRequestRecieved(res.data.data);
     } catch (err) {
       console.log("there is some error in getting request: " + err.message);

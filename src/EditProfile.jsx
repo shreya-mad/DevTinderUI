@@ -18,7 +18,6 @@ const EditProfile = ({ user }) => {
         { firstName, lastName, age, gender, profilePicture },
         { withCredentials: true }
       );
-      console.log(res.data.data);
       dispatch(addUser(res.data.data));
       toast.success("Profile Updated Successful!", {
         duration: 3000,

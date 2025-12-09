@@ -9,7 +9,6 @@ const Connection = () => {
       const res = await axios.get("/api/user/connections", {
         withCredentials: true,
       });
-      console.log(res);
       setData(res.data.data || []);
     } catch (err) {
       console.log("There is some error in fetching connection:", err.message);

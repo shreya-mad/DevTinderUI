@@ -25,7 +25,6 @@ const ResetPassword = () => {
       const res = await axios.post(`/api/reset-password/${token}`, {
         password,
       });
-console.log(res.data);
       toast.success(res.data.message || "Password reset successfully!");
       navigate("/login"); // Redirect to login page
     } catch (err) {
