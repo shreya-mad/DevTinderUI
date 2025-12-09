@@ -243,3 +243,5 @@
 // ec2 instance manually by simple command sudo nano .env and this will make .env file and then 
 // we simply have to paste all the secret varibles inside that file 
 
+// sending email when someone send us connection usign amazon SES(simple email service) aws SES
+
