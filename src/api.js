@@ -1,4 +1,4 @@
-export const BASE_URL = "https://devtinder-2-58ql.onrender.com";
+export const BASE_URL = "https://devtinder-3-oxh7.onrender.com";
 
 // let BASE_URL = "";
 // if (window.location.hostname === "localhost") {
