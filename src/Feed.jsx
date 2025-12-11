@@ -11,12 +11,14 @@ const Feed = () => {
   const getFeed = async () => {
     if (feed?.length) return; // Don't fetch again if feed already exists
     try {
+    
       const res = await axios.get(
         // "/api/user/feed", 
         `${BASE_URL}/user/feed`,
         {
         withCredentials: true,
       });
+     
       dispatch(addFeed(res.data.data)); // Store array in Redux
     } catch (err) {
       console.log("There is some error: " + err.message);

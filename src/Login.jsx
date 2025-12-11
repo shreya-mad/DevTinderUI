@@ -53,7 +53,7 @@ const Login = () => {
         { email, password },
         { withCredentials: true }
       );
-
+console.log(response);
       dispatch(addUser(response.data));
       navigate("/about");
       toast.success("Login Successful!", {
