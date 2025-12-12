@@ -4,7 +4,8 @@ let BASE_URL = "";
 if (window.location.hostname === "localhost") {
   BASE_URL = "http://localhost:4000";
 } else {
-  BASE_URL = "https://devtinder-5-j3fk.onrender.com";
+  BASE_URL = "  https://devtinder-6-025k.onrender.com";
+
   
              
 }
