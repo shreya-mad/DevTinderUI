@@ -83,7 +83,7 @@ const Feed = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title flex items-center gap-2">
+              <h2 className="card-title flex items-center gap-2 text-black">
                 {user.firstName} {user.lastName}
                 <div
                   className={`badge ${
